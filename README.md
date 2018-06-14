@@ -36,6 +36,5 @@ Positional Arguments ->
     sudo apt-get install python3-pip
     sudo pip3 install Pillow
         -> ( Pillow or PIL )    
-    sudo pip3 install textwrap
-        -> if textwrap is not available''')
+
 
