@@ -16,7 +16,7 @@ Positional Arguments ->
     secret_message  :    Enter your message that needs to be hidden
     
     
-make sure to add the extension for the outfile except the jpg(jpeg) format because it is difficul to extract the hidden message from JPG (JPEF) format.
+Make sure to add the extension for the outfile except the jpg(jpeg) format as it is difficult 
     
 
  Extract a secret from a steganographic image using LSB on the red channel
