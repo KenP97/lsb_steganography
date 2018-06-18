@@ -6,7 +6,7 @@ import textwrap
 import sys
 
 
-def __getitem__(item):
+def getitem(item):
     try:
         img = Image.open(item)
     except IOError as e:
@@ -15,7 +15,7 @@ def __getitem__(item):
     return img
 
 
-def __setitem__(img, outfile):
+def setitem(img, outfile):
     try:
         img.save(outfile)
     except IOError as e:
@@ -38,7 +38,7 @@ def create_text_image(text, img_size):
 
 
 def decode_text(steg_img_path, outfile):
-    steg_img = __getitem__(steg_img_path)
+    steg_img = getitem(steg_img_path)
     red_channel = steg_img.split()[0]
 
     x_size = steg_img.size[0]
@@ -54,11 +54,11 @@ def decode_text(steg_img_path, outfile):
             else:
                 pixels[i, j] = (0, 0, 0)
 
-    __setitem__(decoded_img, outfile)
+    setitem(decoded_img, outfile)
 
 
 def encode_text(cover_path, outfile, secret_message):
-    cover = __getitem__(cover_path)
+    cover = getitem(cover_path)
     red_cover = cover.split()[0]
     green_cover = cover.split()[1]
     blue_cover = cover.split()[2]
@@ -83,7 +83,7 @@ def encode_text(cover_path, outfile, secret_message):
                 red_cover_pix = red_cover_pix[:-1] + '0'
             pixels[i, j] = (int(red_cover_pix, 2), green_cover.getpixel((i, j)), blue_cover.getpixel((i, j)))
 
-    __setitem__(encoded_img, outfile)
+    setitem(encoded_img, outfile)
 
 
 def usage():
